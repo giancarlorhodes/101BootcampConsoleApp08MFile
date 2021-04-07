@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ClassLibraryFileExample
 {
 
-    class Grogery
+    public class Grogery
     {
         public string Name { get; set; }
         public int Quantity { get; set; }
