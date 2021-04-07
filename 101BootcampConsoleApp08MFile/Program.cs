@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClassLibraryFileExample;
 
 namespace _101BootcampConsoleApp08MFile
 {
@@ -32,7 +33,7 @@ namespace _101BootcampConsoleApp08MFile
                 }
                 else if (_input.ToLower() == "w")
                 {
-                    // create or append to file
+                    // append to file
                     if (File.Exists(filePath))
                     {
                         foreach (var item in gList)
@@ -51,7 +52,6 @@ namespace _101BootcampConsoleApp08MFile
                         }
                         sw.Close();                    
                     }
-
                 }
                 else if (_input.ToLower() == "c")
                 {
@@ -67,10 +67,8 @@ namespace _101BootcampConsoleApp08MFile
                 else
                 {
                     Console.WriteLine("Invalid input. Try again.");                
-                }
-            
+                }            
             }
-
         }
     }
 }
