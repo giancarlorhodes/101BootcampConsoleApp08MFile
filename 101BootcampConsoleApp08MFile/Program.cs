@@ -21,14 +21,15 @@ namespace _101BootcampConsoleApp08MFile
 
             bool IsContinue = true;
             while (IsContinue) {
-                Console.WriteLine("View list (v), Write file (w), Clear file (c), Exit Program (x)");
+                Console.WriteLine("View list (v), Remove from list(r), Add to list(a), Write file (w), Clear file (c), Exit Program (x)");
 
                 string _input = Console.ReadLine();
                 if (_input.ToLower() == "v")
                 {
+                    Console.WriteLine("Key\t\t\t\t\t\tName\t\tPrice\t\tQuantity");
                     foreach (var item in gList)
                     {
-                        Console.WriteLine("Name {0}, Price {1}, Quantity {2}", item.Name, item.Price, item.Quantity);
+                        Console.WriteLine("{0}\t\t{1}\t\t{2}\t\t{3}", item.Key, item.Name, item.Price, item.Quantity);
                     }
                 }
                 else if (_input.ToLower() == "w")
@@ -63,6 +64,22 @@ namespace _101BootcampConsoleApp08MFile
                 else if (_input.ToLower() == "x")
                 {
                     IsContinue = false;
+                }
+                else if (_input.ToLower() == "a")
+                {
+                    Console.WriteLine("Enter the name of the grocery item");
+                    string name = Console.ReadLine();
+                    Console.WriteLine("Enter the price of the grocery item");
+                    double price = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("Enter the quantity of the grocery item");
+                    int quantity = Convert.ToInt32(Console.ReadLine());
+                    gList.Add(new Grogery { Name = name, Price = price, Quantity = quantity });
+                }
+                else if (_input.ToLower() == "r")
+                {
+                    Console.WriteLine("Enter Key for the grocery item to remove");
+                    string key = Console.ReadLine();
+                    gList.Remove(gList.Find(glist => glist.Key == key));
                 }
                 else
                 {
